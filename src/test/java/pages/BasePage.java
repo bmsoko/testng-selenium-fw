@@ -4,7 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.IOException;
 import java.util.List;
 
 
@@ -44,6 +47,7 @@ public class BasePage {
     public void click(By locator) {
         driver.findElement(locator).click();
     }
+
     public boolean isDisplayed (By locator) {
         try {
             return driver.findElement(locator).isDisplayed();
@@ -54,5 +58,15 @@ public class BasePage {
 
     public void visit(String url) {
         driver.get(url);
+    }
+
+    public void waitUntilVisible (By locator) throws InterruptedException, IOException {
+        WebDriverWait wait = new WebDriverWait(driver, 15);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    public void clear (By locator) {
+        driver.findElement(locator).clear();
+
     }
 }
