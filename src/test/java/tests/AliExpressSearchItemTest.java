@@ -7,8 +7,6 @@ import pages.*;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import org.testng.Assert.*;
-
 import java.io.IOException;
 
 public class AliExpressSearchItemTest {
@@ -27,7 +25,7 @@ public class AliExpressSearchItemTest {
         homePage.closeIFrame();
     }
 
-    @Test
+    @Test(groups = { "regression" })
     public void searchItem() throws IOException, InterruptedException {
         homePage.closeIFrame();
         homePage.searchForItem("iphone");

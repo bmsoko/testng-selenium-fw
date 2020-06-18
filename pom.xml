@@ -26,6 +26,11 @@
             <version>7.1.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>4.1.6</version>
+        </dependency>
 
     </dependencies>
 

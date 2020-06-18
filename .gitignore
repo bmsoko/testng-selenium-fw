@@ -26,3 +26,6 @@ target/test-classes/META-INF/
 target/test-classes/chromedriver/
 target/test-classes/pages/HomePage.class
 target/test-classes/pages/ResultsPage.class
+/target
+target/test-classes/pages/HomePage.class
+target/test-classes/pages/ResultsPage.class
