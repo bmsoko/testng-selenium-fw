@@ -19,6 +19,10 @@
 *.zip
 *.tar.gz
 *.rar
-
+*.class
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+target/test-classes/META-INF/
+target/test-classes/chromedriver/
+target/test-classes/pages/HomePage.class
+target/test-classes/pages/ResultsPage.class

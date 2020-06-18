@@ -10,11 +10,6 @@ public class HomePage extends BasePage {
     // Mappings
     By searchBox  = By.id("search-key");
     By searchBtn  = By.className("search-button");
-    By closePopUp = By.cssSelector("[class=\"close-layer\"]");
-    By iFrame     = By.id("localstorage-proxy-ifr-alibabadotcom2");
-
-
-
 
     //Actions
     public void searchForItem (String itemToSearch) {
