@@ -18,7 +18,6 @@ public class BasePage {
     private WebDriver driver;
     By loaderElement = By.className("load-container");
     By closePopUp = By.cssSelector("[class='close-layer']");
-    By iFrame     = By.id("localstorage-proxy-ifr-alibabadotcom2");
 
     public BasePage (WebDriver driver) {
         this.driver = driver;

@@ -15,6 +15,7 @@ public class AliExpressSearchItemTest {
     private WebDriver driver;
     HomePage homePage;
     ResultsPage resultsPage;
+    ProductDetailsPage productDetailsPage;
 
     @BeforeTest
     public void setUp() throws IOException, InterruptedException {
@@ -28,23 +29,30 @@ public class AliExpressSearchItemTest {
 
     @Test
     public void searchItem() throws IOException, InterruptedException {
-        // This method will close the iFrame if shown when navigating to the home page of AliExpress
         homePage.closeIFrame();
         homePage.searchForItem("iphone");
         homePage.closeIFrame();
         resultsPage = new ResultsPage(driver);
         resultsPage.closeIFrame();
+        // to remove the iFrame
         driver.navigate().refresh();
         Assert.assertTrue(resultsPage.hasPageResultsMoreThanOnePage(), "The results did not have more that 1 page");
         resultsPage.waitForPageLoaded();
         resultsPage.goToPageNumber("2");
         resultsPage.waitForLoadToDisappear();
         resultsPage.goToSoldItems(2);
+        String winHandleBefore = driver.getWindowHandle();
+        for(String winHandle : driver.getWindowHandles()){
+            driver.switchTo().window(winHandle);
+        }
+        productDetailsPage = new ProductDetailsPage(driver);
+        productDetailsPage.waitForPageLoaded();
+        Assert.assertTrue(productDetailsPage.hasAvailableProducts(), "There were no available products");
     }
 
     @AfterTest
     public void tearDown() {
-//        driver.quit();
+        driver.quit();
 
     }
 }
