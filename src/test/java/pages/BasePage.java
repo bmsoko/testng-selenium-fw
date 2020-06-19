@@ -5,12 +5,17 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 
@@ -23,9 +28,10 @@ public class BasePage {
         this.driver = driver;
     }
 
-    public WebDriver chromeDriverConnection() {
-        System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver/chromedriver");
-        driver = new ChromeDriver();
+    public WebDriver chromeDriverConnection() throws MalformedURLException {
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setBrowserName(BrowserType.FIREFOX);
+        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
         return driver;
     }
 

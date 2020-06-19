@@ -1,13 +1,15 @@
 package tests;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import pages.*;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
-import org.testng.Assert.*;
 
 import java.io.IOException;
 
@@ -27,7 +29,7 @@ public class AliExpressSearchItemTest {
         homePage.closeIFrame();
     }
 
-    @Test
+    @Test(groups = { "regression" })
     public void searchItem() throws IOException, InterruptedException {
         homePage.closeIFrame();
         homePage.searchForItem("iphone");
